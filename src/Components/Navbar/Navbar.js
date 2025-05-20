@@ -43,7 +43,7 @@ function Navbar(props) {
                 <ul className="nav__links">
                     {/* List item for the 'Home' link */}
                     <li className="link">
-                        <a href="../Landing_Page/LandingPage.html">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     {/* List item for the 'Appointments' link */}
                     <li className="link">
@@ -51,13 +51,13 @@ function Navbar(props) {
                     </li>
                     {/* List item for the 'Sign Up' link with a button */}
                     <li className="link">
-                        <a href="../Sign_Up//Sign_Up.html">
+                        <a href="/Sign_Up">
                             <button className="btn1">Sign Up</button>
                         </a>
                     </li>
                     {/* List item for the 'Login' link with a button */}
                     <li className="link">
-                        <a href="../Login/Login.html">
+                        <a href="/Login">
                             <button className="btn1">Login</button>
                         </a>
                     </li>
