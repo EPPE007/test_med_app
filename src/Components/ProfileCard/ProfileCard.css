@@ -1,0 +1,74 @@
+.profile-container {
+    max-width: 400px;
+    margin: 150px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(54, 133, 251, 0.08), 0 1.5px 6px rgba(0,0,0,0.06);
+    padding: 32px 24px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.profile-details h1 {
+    font-size: 2rem;
+    color: #3685fb;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.profile-details p {
+    font-size: 1.1rem;
+    color: #222;
+    margin: 8px 0;
+    text-align: center;
+}
+
+.profile-details b {
+    color: #0d213f;
+}
+
+.profile-details button,
+.profile-container button {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin: 18px 0 0 0;
+    background: #3685fb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.profile-details button:hover,
+.profile-container button:hover {
+    background: #2563c9;
+}
+
+form label {
+    display: block;
+    margin: 18px 0 6px 0;
+    color: #0d213f;
+    font-weight: 500;
+}
+
+form input[type="text"],
+form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid #dbeafe;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    background: #f7fafc;
+    transition: border 0.2s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus {
+    border: 1.5px solid #3685fb;
+    outline: none;
+    background: #fff;
+}
