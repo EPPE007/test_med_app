@@ -1,11 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar(props) {
-    // You need to define handleClick if you want the icon to work
-    const handleClick = () => {
-        // handle menu toggle here
-    };
+
+    const [click, setClick] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const handleClick = () => setClick(!click);
+
+    const handleLogout = () => {
+        sessionStorage.removeItem("auth-token");
+        sessionStorage.removeItem("name");
+        sessionStorage.removeItem("email");
+        sessionStorage.removeItem("phone");
+
+        localStorage.removeItem("doctorData");
+        setIsLoggedIn(false);
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key.startsWith("reviewFormData_")) {
+                localStorage.removeItem(key);
+            }
+        }
+        setEmail('');
+        window.location.reload();
+    }
+
+    const handleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    }
+
+    useEffect(() => {
+        const storedemail = sessionStorage.getItem("email");
+
+        if (storedemail) {
+            setIsLoggedIn(true);
+            setUsername(storedemail);
+        }
+    }, []);
 
     return (
         <div>
@@ -47,24 +84,39 @@ function Navbar(props) {
                     </li>
                     {/* List item for the 'Appointments' link */}
                     <li className="link">
-                        <a href="/">Appointments</a>
+                        <a href="/search/doctors">Appointments</a>
+                    </li>
+                    {/* List item for the 'Consultation' link */}
+                    <li className="link">
+                        <a href="/instant-consultation">Consultation</a>
                     </li>
                     {/* List item for the 'Reviews' link */}
                     <li className="link">
                         <a href="/Reviews">Reviews</a>
                     </li>
-                    {/* List item for the 'Sign Up' link with a button */}
-                    <li className="link">
-                        <a href="/Sign_Up">
-                            <button className="btn1">Sign Up</button>
-                        </a>
-                    </li>
-                    {/* List item for the 'Login' link with a button */}
-                    <li className="link">
-                        <a href="/Login">
-                            <button className="btn1">Login</button>
-                        </a>
-                    </li>
+                    {isLoggedIn ? (
+                        <>
+                            <li className="link">
+                                <button className="btn2" onClick={handleLogout}>
+                                    Logout
+                                </button>
+                            </li>
+
+                        </>
+                    ) : (
+                        <>
+                            <li className="link">
+                                <Link to="/Sign_Up">
+                                    <button className="btn1">Sign Up</button>
+                                </Link>
+                            </li>
+                            <li className="link">
+                                <Link to="/Login">
+                                    <button className="btn1">Login</button>
+                                </Link>
+                            </li>
+                        </>
+                    )}
                 </ul>
             </nav>
         </div>
