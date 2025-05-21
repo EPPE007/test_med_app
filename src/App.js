@@ -10,6 +10,8 @@ import Landing_Page from './Components/Landing_Page/Landing_Page';
 import Sign_Up from './Components/Sign_up/Sign_Up';
 import Login from './Components/Login/Login';
 import FindDoctorSearch from './Components/FindDoctorSearch/FindDoctorSearch';
+import InstantConsultation from './Components/InstantConsultation/InstantConsultation';
+import Notification from './Components/Notification/Notification';
 
 // Function component for the main App
 function App() {
@@ -19,16 +21,17 @@ function App() {
         <div className="App">
             {/* Set up BrowserRouter for routing */}
             <BrowserRouter>
-                {/* Display the Navbar component */}
-                <Navbar />
-
-                {/* Set up the Routes for different pages */}
-                <Routes>
-                    <Route path="/" element={<Landing_Page />} />
-                    <Route path="/Login" element={<Login />} />
-                    <Route path="/Sign_Up" element={<Sign_Up />} />
-                    <Route path="/instant-consultation" element={<FindDoctorSearch />} />
-                </Routes>
+                <Notification>
+                    <Navbar />
+                    {/* Set up the Routes for different pages */}
+                    <Routes>
+                        <Route path="/" element={<Landing_Page />} />
+                        <Route path="/Login" element={<Login />} />
+                        <Route path="/Sign_Up" element={<Sign_Up />} />
+                        <Route path="/instant-consultation" element={<InstantConsultation />} />
+                        <Route path="/findDoctorSearch" element={<FindDoctorSearch />} />
+                    </Routes>
+                </Notification>
             </BrowserRouter>
         </div>
     );
