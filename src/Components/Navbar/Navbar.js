@@ -49,6 +49,10 @@ function Navbar(props) {
                     <li className="link">
                         <a href="/">Appointments</a>
                     </li>
+                    {/* List item for the 'Reviews' link */}
+                    <li className="link">
+                        <a href="/Reviews">Reviews</a>
+                    </li>
                     {/* List item for the 'Sign Up' link with a button */}
                     <li className="link">
                         <a href="/Sign_Up">
