@@ -86,10 +86,6 @@ function Navbar(props) {
                     <li className="link">
                         <a href="/search/doctors">Appointments</a>
                     </li>
-                    {/* List item for the 'Consultation' link */}
-                    <li className="link">
-                        <a href="/instant-consultation">Consultation</a>
-                    </li>
                     {/* List item for the 'Reviews' link */}
                     <li className="link">
                         <a href="/Reviews">Reviews</a>
